@@ -9,5 +9,5 @@ Open the web page of deflt2stay
 ### send_email.py
 Sending email for new apartment update
 
-Filling form script updated later when I have time.
+Script for filling still not here yet, but I assume this is fast enough to get the studio.
 
