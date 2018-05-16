@@ -15,5 +15,5 @@ Script for filling, need to put the **passport.pdf** file under the same directo
 selenium and webdriver need to installed in advance. 
 Some other fileds like name, stree address should use Chrome auto filling function.
 
-Good luck with geting the house.
+Good luck with getting the studio.
 
