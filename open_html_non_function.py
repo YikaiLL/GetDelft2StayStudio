@@ -11,6 +11,8 @@ import time
 
 
 room__name = input('Enter Your Room Name: ')
+# INPUT room name like "2Z 18", using space as spearate, the first part is the floor num, the second is the room number.
+
 if room__name =='':
     try:
         with open('house_list.json') as data_file:
@@ -24,15 +26,19 @@ if room__name =='':
 
 if room__name!='':
     print('Hello ', room__name)
-
+    
+    # Input your own account name
     usernameStr = ' @gmail.com'
+    # Input your own password
     passwordStr = ' '
+    # Input your birth date: DD-MM-YYYY
     birthdayStr='20-03-1999'
-
+    
+    # Open login page
     browser = webdriver.Chrome()
     browser.get(('https://delft2stay.nl/customer/account/login/'))
 
-
+    # input email and password in the page
     username = browser.find_element_by_xpath('//*[@id="email"]')
     username.send_keys(usernameStr)
     password=browser.find_element_by_xpath('//*[@id="pass"]')
@@ -54,19 +60,29 @@ if room__name!='':
 
     birthday=browser.find_element_by_xpath('//*[@id="date_of_birth"]')
     birthday.send_keys(birthdayStr)
+    # We are foriengerss :)
     foreign_select=browser.find_element_by_xpath('//*[@id="foreign"]')
     foreign_select.click()
+    # Find the nearest date that is available. 
     start_date_select=Select(browser.find_element_by_xpath('//*[@id="start_date"]'))
     start_date_select.select_by_index(1);
     
+    # Upload the passport 
     passport=browser.find_element_by_xpath('//*[@id="passport"]')
+    # File name can be modified according to your passport name and extension
     passport.send_keys(os.getcwd()+"/passport.pdf")
     
+    # I am not going to click the book button for you.
     book_button=browser.find_element_by_xpath('//*[@id="product_addtocart_form"]/div[7]/div[2]/div[2]/button')
+    
+    # Sleep forever
     time.sleep(9999999)
     # return
+    
+    # Uncomment this if you want to book by script.
     # book_button.click()
     
+    # Unccoment the following to accept the terms, I am not going to do that for you.
     # delay = 3 # seconds
     # try:
     #     # element = WeabDriverWait(driver, 6000).until(EC.presence_of_element_located((By.XPATH, qID_xpath_start+str(qIDindex)+qID_xpath_end)))
